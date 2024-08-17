@@ -1469,14 +1469,14 @@ CommandShowMatchEquityTable(char *sz)
     int anScore[2];
 
     /* If n > 0 write n x n match equity table,
-     * else if match write nMatchTo x nMatchTo table,
-     * else write full table (may be HUGE!) */
+     * else if match in progress write nMatchTo x nMatchTo table,
+     * else write 7 points match table (fits in 80 columns) */
 
     if ((n <= 0) || (n > MAXSCORE)) {
         if (ms.nMatchTo)
             n = ms.nMatchTo;
         else
-            n = MAXSCORE;
+            n = 7;
     }
 
     if (ms.nMatchTo && ms.anScore[0] <= n && ms.anScore[1] <= n) {
