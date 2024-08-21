@@ -918,7 +918,10 @@ AnalyzeMove(moverecord * pmr, matchstate * pms, const listOLD * plParentGame,
     }
     MT_Release();
 
-    return fInterrupt ? -1 : 0;
+    if (MT_SafeGet(&fInterrupt))
+        return -1;
+    else
+        return 0;
 }
 
 static int
@@ -1731,10 +1734,6 @@ updateStatisticsGame(const listOLD * plGame)
     }
 
 }
-
-
-
-
 
 extern void
 updateStatisticsMatch(listOLD * plMatch)

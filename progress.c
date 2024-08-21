@@ -676,7 +676,7 @@ RolloutCancel(GObject * UNUSED(po), rolloutprogress * prp)
 static void
 RolloutStop(GObject * UNUSED(po), rolloutprogress * prp)
 {
-    fInterrupt = TRUE;
+    MT_SafeSet(&fInterrupt, TRUE);
     prp->stopped = -1;
 }
 
