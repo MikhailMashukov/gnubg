@@ -39,26 +39,16 @@ MT_CreateThreadLocalData(int id)
     ThreadLocalData *tld = (ThreadLocalData *) g_malloc(sizeof(ThreadLocalData));
     tld->id = id;
     tld->pnnState = (NNState *) g_malloc(sizeof(NNState) * 3);
-    memset(tld->pnnState, 0, sizeof(NNState) * 3);
     // cppcheck-suppress duplicateExpression
-    tld->pnnState[CLASS_RACE - CLASS_RACE].savedBase = g_malloc(nnRace.cHidden * sizeof(float));
+    tld->pnnState[CLASS_RACE - CLASS_RACE].savedBase = g_malloc0(nnRace.cHidden * sizeof(float));
     // cppcheck-suppress duplicateExpression
-    memset(tld->pnnState[CLASS_RACE - CLASS_RACE].savedBase, 0, nnRace.cHidden * sizeof(float));
-    // cppcheck-suppress duplicateExpression
-    tld->pnnState[CLASS_RACE - CLASS_RACE].savedIBase = g_malloc(nnRace.cInput * sizeof(float));
-    // cppcheck-suppress duplicateExpression
-    memset(tld->pnnState[CLASS_RACE - CLASS_RACE].savedIBase, 0, nnRace.cInput * sizeof(float));
-    tld->pnnState[CLASS_CRASHED - CLASS_RACE].savedBase = g_malloc(nnCrashed.cHidden * sizeof(float));
-    memset(tld->pnnState[CLASS_CRASHED - CLASS_RACE].savedBase, 0, nnCrashed.cHidden * sizeof(float));
-    tld->pnnState[CLASS_CRASHED - CLASS_RACE].savedIBase = g_malloc(nnCrashed.cInput * sizeof(float));
-    memset(tld->pnnState[CLASS_CRASHED - CLASS_RACE].savedIBase, 0, nnCrashed.cInput * sizeof(float));
-    tld->pnnState[CLASS_CONTACT - CLASS_RACE].savedBase = g_malloc(nnContact.cHidden * sizeof(float));
-    memset(tld->pnnState[CLASS_CONTACT - CLASS_RACE].savedBase, 0, nnContact.cHidden * sizeof(float));
-    tld->pnnState[CLASS_CONTACT - CLASS_RACE].savedIBase = g_malloc(nnContact.cInput * sizeof(float));
-    memset(tld->pnnState[CLASS_CONTACT - CLASS_RACE].savedIBase, 0, nnContact.cInput * sizeof(float));
+    tld->pnnState[CLASS_RACE - CLASS_RACE].savedIBase = g_malloc0(nnRace.cInput * sizeof(float));
+    tld->pnnState[CLASS_CRASHED - CLASS_RACE].savedBase = g_malloc0(nnCrashed.cHidden * sizeof(float));
+    tld->pnnState[CLASS_CRASHED - CLASS_RACE].savedIBase = g_malloc0(nnCrashed.cInput * sizeof(float));
+    tld->pnnState[CLASS_CONTACT - CLASS_RACE].savedBase = g_malloc0(nnContact.cHidden * sizeof(float));
+    tld->pnnState[CLASS_CONTACT - CLASS_RACE].savedIBase = g_malloc0(nnContact.cInput * sizeof(float));
 
-    tld->aMoves = (move *) g_malloc(sizeof(move) * MAX_INCOMPLETE_MOVES);
-    memset(tld->aMoves, 0, sizeof(move) * MAX_INCOMPLETE_MOVES);
+    tld->aMoves = (move *) g_malloc0(sizeof(move) * MAX_INCOMPLETE_MOVES);
     return tld;
 }
 
