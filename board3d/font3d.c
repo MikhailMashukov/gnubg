@@ -14,8 +14,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
- * $Id: font3d.c,v 1.48 2022/03/14 21:52:48 plm Exp $
  */
 
 /* Draw 3d numbers using vera font and freetype library */
@@ -116,13 +114,23 @@ evaluateQuadraticCurve(GArray* points)
 	}
 }
 
+#if ( FREETYPE_MAJOR * 10000 + FREETYPE_MINOR * 100 + FREETYPE_PATCH >= 21303 )
+static void
+PopulateContour(GArray* contour, const FT_Vector* points, const unsigned char* pointTags, int numberOfPoints)
+#else
 static void
 PopulateContour(GArray* contour, const FT_Vector* points, const char* pointTags, int numberOfPoints)
+#endif
 {
 	int pointIndex;
 
 	for (pointIndex = 0; pointIndex < numberOfPoints; pointIndex++) {
-		char pointTag = pointTags[pointIndex];
+#if ( FREETYPE_MAJOR * 10000 + FREETYPE_MINOR * 100 + FREETYPE_PATCH >= 21303 )
+		unsigned char pointTag;
+#else
+		char pointTag;
+#endif
+		pointTag = pointTags[pointIndex];
 
 		if (pointTag == FT_Curve_Tag_On || numberOfPoints < 2) {
 			AddPoint(contour, (double)points[pointIndex].x, (double)points[pointIndex].y);
@@ -186,10 +194,15 @@ PopulateVectoriser(Vectoriser * pVect, const FT_Outline * pOutline)
     for (contourIndex = 0; contourIndex < pOutline->n_contours; contourIndex++) {
         Contour newContour;
         FT_Vector *pointList = &pOutline->points[startIndex];
-        char *tagList = &pOutline->tags[startIndex];
-
+#if ( FREETYPE_MAJOR * 10000 + FREETYPE_MINOR * 100 + FREETYPE_PATCH >= 21303 )
+        unsigned char *tagList;
+#else
+        char *tagList;
+#endif
         int endIndex = pOutline->contours[contourIndex];
         int contourLength = (endIndex - startIndex) + 1;
+
+        tagList = &pOutline->tags[startIndex];
 
         newContour.conPoints = g_array_new(FALSE, FALSE, sizeof(Point3d));
         PopulateContour(newContour.conPoints, pointList, tagList, contourLength);
