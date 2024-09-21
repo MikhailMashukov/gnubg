@@ -14,8 +14,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
- * $Id: bearoffgammon.c,v 1.14 2019/11/16 22:45:16 plm Exp $
  */
 
 #include "config.h"
@@ -7229,6 +7227,7 @@ getBearoffGammonProbs(const unsigned int board[6])
     }
 
     g_assert(group > 0);
+// cppcheck-suppress negativeIndex
     in = &info[group - 1];
     if (!in->info) {
         return &in->gDefault;
