@@ -13,8 +13,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
- * $Id: DrawOGL.c,v 1.24 2022/04/21 20:50:21 plm Exp $
  */
 
 #include "config.h"
@@ -845,9 +843,11 @@ getProjectedPos(int x, int y, float atDepth, float pos[3])
 
 	ret = gluUnProjectMine((GLfloat)x, (GLfloat)y, 0.0, mvmatrix, projmatrix, viewport, &nearX, &nearY, &nearZ);
 	g_assert(ret == GL_TRUE);	/* Should always work */
+#if defined(G_DISABLE_ASSERT)
+	(void)ret;	/* silence warning about unused variable */
+#endif
 	ret = gluUnProjectMine((GLfloat)x, (GLfloat)y, 1.0, mvmatrix, projmatrix, viewport, &farX, &farY, &farZ);
 	g_assert(ret == GL_TRUE);	/* Should always work */
-
 #if defined(G_DISABLE_ASSERT)
 	(void)ret;	/* silence warning about unused variable */
 #endif
