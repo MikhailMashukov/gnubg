@@ -13,8 +13,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
- * $Id: PickOGL.c,v 1.16 2021/10/30 13:56:08 plm Exp $
  */
 
 #include "config.h"
@@ -27,12 +25,12 @@
 typedef void (*PickDrawFun) (const BoardData* bd, void* data);
 
 #if !GTK_CHECK_VERSION(3,0,0)
-static void SetPickObject(int value)
+static void SetPickObject(unsigned int value)
 {
 	glLoadName(value);
 }
 #else
-static void SetPickObject(int value)
+static void SetPickObject(unsigned int value)
 {
 	SetPickColour(((value + 1) & 0xFF) / (float)0xFF);
 }
