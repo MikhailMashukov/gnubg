@@ -568,7 +568,7 @@ drawSpecialPieces(const ModelManager* modelHolder, const BoardData* bd, const Bo
 }
 
 #if !GTK_CHECK_VERSION(3,0,0)
-void MAApiece(int roundPiece, int curveAccuracy)
+void MAApiece(int roundPiece, unsigned int curveAccuracy)
 {
 	/* Anti-alias piece edges */
 	float lip = 0;

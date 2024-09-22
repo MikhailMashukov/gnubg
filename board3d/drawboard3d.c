@@ -3273,7 +3273,7 @@ void ShowMoveIndicator(const ModelManager* modelHolder, const BoardData* bd)
 }
 
 extern void
-drawPiece(const ModelManager* modelHolder, const BoardData3d* bd3d, unsigned int point, unsigned int pos, int rotate, int roundPiece, int curveAccuracy, int separateTop)
+drawPiece(const ModelManager* modelHolder, const BoardData3d* bd3d, unsigned int point, unsigned int pos, int rotate, int roundPiece, unsigned int curveAccuracy, int separateTop)
 {
 	float v[3];
 	glPushMatrix();
@@ -3448,7 +3448,7 @@ MoveToFlagPos(int turn)
 }
 
 extern void
-renderFlag(const ModelManager* modelHolder, const BoardData3d* bd3d, int UNUSED(curveAccuracy), int turn, int resigned)
+renderFlag(const ModelManager* modelHolder, const BoardData3d* bd3d, unsigned int UNUSED(curveAccuracy), int turn, int resigned)
 {
 	glPushMatrix();
 		MoveToFlagPos(turn);
