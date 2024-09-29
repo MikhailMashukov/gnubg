@@ -641,7 +641,7 @@ generate_os(const int nOS, const int fHeader,
             aus[32] = 0xFFFF;
         }
         if (!(i % 100) && fTTY)
-            g_printerr("1:%d/%d        \r", i, n);
+            g_printerr("%d/%d\r", i, n);
 
         WriteOS(aus, fCompress, fCompress ? pfTmp : output);
         if (fGammon)
@@ -876,7 +876,7 @@ generate_nd(const int nPoints, const int nHashSize, const int fHeader, bearoffco
 
         XhashAdd(&h, i, ar, 16);
         if (!(i % 100) && fTTY)
-            g_printerr("1:%d/%d        \r", i, n);
+            g_printerr("%d/%d\r", i, n);
 
     }
     putc('\n', stderr);
@@ -1211,7 +1211,7 @@ generate_ts(const int nTSP, const int nTSC,
 
         }
         if (fTTY)
-            g_printerr("%d/%d     \r", iPos, n * n);
+            g_printerr("%d/%d\r", iPos, n * n);
     }
 
     /* positions below diagonal */
@@ -1228,7 +1228,7 @@ generate_ts(const int nTSP, const int nTSC,
 
         }
         if (fTTY)
-            g_printerr("%d/%d     \r", iPos, n * n);
+            g_printerr("%d/%d\r", iPos, n * n);
     }
 
     putc('\n', stderr);
