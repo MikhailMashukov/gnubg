@@ -1,0 +1,7 @@
+* text eol=lf
+*.am text eol=lf
+*.sh text eol=lf
+*.awk text eol=lf
+
+*.* text=auto 
+   # Default
