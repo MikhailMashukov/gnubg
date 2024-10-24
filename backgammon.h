@@ -944,6 +944,7 @@ extern void CommandSetTutorSkillVeryBad(char *);
 extern void CommandSetVariation1ChequerHypergammon(char *);
 extern void CommandSetVariation2ChequerHypergammon(char *);
 extern void CommandSetVariation3ChequerHypergammon(char *);
+extern void CommandSetVariationLongBackgammon(char *);
 extern void CommandSetVariationNackgammon(char *);
 extern void CommandSetVariationStandard(char *);
 extern void CommandSetVsync3d(char *);

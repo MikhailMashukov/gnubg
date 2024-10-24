@@ -1105,6 +1105,8 @@ static command acSetVariation[] = {
     N_("Play 2-chequer hypergammon"), NULL, NULL },
   { "3-chequer-hypergammon", CommandSetVariation3ChequerHypergammon,
     N_("Play 3-chequer hypergammon"), NULL, NULL },
+  { "long-backgammon", CommandSetVariationLongBackgammon,
+    N_("Play long backgammon"), NULL, NULL },
   { "nackgammon", CommandSetVariationNackgammon,
     N_("Play standard backgammon with Nackgammon starting position"), 
     NULL, NULL },

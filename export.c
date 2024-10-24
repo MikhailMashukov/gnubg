@@ -1335,6 +1335,9 @@ ExportMatchMat(char *sz, int fSst)
         switch (ms.bgv) {
         case VARIATION_NACKGAMMON:
             fprintf(pf, "; [Variation \"NackGammon\"]\n");
+            break;       
+        case VARIATION_LONG_BACKGAMMON:
+            fprintf(pf, "; [Variation \"LongBackgammon\"]\n");
             break;
         case VARIATION_HYPERGAMMON_1:
             fprintf(pf, "; [Variation \"HyperGammon (1)\"]\n");

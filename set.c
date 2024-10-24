@@ -4342,6 +4342,15 @@ CommandSetVariation3ChequerHypergammon(char *UNUSED(sz))
 }
 
 extern void
+CommandSetVariationLongBackgammon(char *UNUSED(sz))
+{
+
+    SetVariation(VARIATION_LONG_BACKGAMMON);
+
+}
+
+
+extern void
 CommandSetVariationNackgammon(char *UNUSED(sz))
 {
 

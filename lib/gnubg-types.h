@@ -28,6 +28,7 @@ typedef enum {
     VARIATION_STANDARD,         /* standard backgammon */
     VARIATION_NACKGAMMON,       /* standard backgammon with nackgammon starting
                                  * position */
+    VARIATION_LONG_BACKGAMMON,
     VARIATION_HYPERGAMMON_1,    /* 1-chequer hypergammon */
     VARIATION_HYPERGAMMON_2,    /* 2-chequer hypergammon */
     VARIATION_HYPERGAMMON_3,    /* 3-chequer hypergammon */

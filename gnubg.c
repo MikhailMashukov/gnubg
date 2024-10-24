@@ -1305,6 +1305,10 @@ InitBoard(TanBoard anBoard, const bgvariation bgv)
         PositionFromID(anBoard, "4Dl4ADbgOXgANg");
         break;
 
+    case VARIATION_LONG_BACKGAMMON:
+        PositionFromID(anBoard, "/38AAAD/fwAAAA");
+        break;
+
     case VARIATION_HYPERGAMMON_1:
         PositionFromID(anBoard, "AACAAAAAAgAAAA");
         break;

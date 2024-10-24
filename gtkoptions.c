@@ -463,6 +463,7 @@ append_game_options(optionswidget * pow)
     static char *aszVariationsTooltips[NUM_VARIATIONS] = {
         N_("Use standard backgammon starting position"),
         N_("Use Nick \"Nack\" Ballard's Nackgammon starting position with " "standard rules."),
+        N_("Play long backgammons"),
         N_("Play 1-chequer hypergammon (i.e., gammon and backgammons possible)"),
         N_("Play 2-chequer hypergammon (i.e., gammon and backgammons possible)"),
         N_("Play 3-chequer hypergammon (i.e., gammon and backgammons possible)")

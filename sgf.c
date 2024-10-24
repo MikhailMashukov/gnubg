@@ -374,6 +374,8 @@ RestoreRules(xmovegameinfo * pmgi, const char *sz)
             pmgi->fJacoby = TRUE;
         else if (!strcmp(pchx, "Nackgammon"))
             pmgi->bgv = VARIATION_NACKGAMMON;
+        else if (!strcmp(pchx, "LongBackgammon"))
+            pmgi->bgv = VARIATION_LONG_BACKGAMMON;
         else if (!strcmp(pchx, "Hypergammon1"))
             pmgi->bgv = VARIATION_HYPERGAMMON_1;
         else if (!strcmp(pchx, "Hypergammon2"))
@@ -2154,7 +2156,7 @@ SaveGame(FILE * pf, listOLD * plGame)
             AddRule(pf, "Jacoby", &fFirst);
         if (pmr->g.bgv != VARIATION_STANDARD) {
             static const char *aszSGFVariation[NUM_VARIATIONS] =
-                { NULL, "Nackgammon", "Hypergammon1", "Hypergammon2", "Hypergammon3" };
+                { NULL, "Nackgammon", "LongBackgammon", "Hypergammon1", "Hypergammon2", "Hypergammon3" };
 
             AddRule(pf, aszSGFVariation[pmr->g.bgv], &fFirst);
         }

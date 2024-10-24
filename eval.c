@@ -255,11 +255,12 @@ bgvariation bgvDefault = VARIATION_STANDARD;
 
 /* the number of chequers for the variations */
 
-int anChequers[NUM_VARIATIONS] = { 15, 15, 1, 2, 3 };
+int anChequers[NUM_VARIATIONS] = { 15, 15, 15, 1, 2, 3 };
 
 const char *aszVariations[NUM_VARIATIONS] = {
     N_("Standard backgammon"),
     N_("Nackgammon"),
+    N_("Long backgammon"),
     N_("1-chequer hypergammon"),
     N_("2-chequer hypergammon"),
     N_("3-chequer hypergammon")
@@ -268,6 +269,7 @@ const char *aszVariations[NUM_VARIATIONS] = {
 const char *aszVariationCommands[NUM_VARIATIONS] = {
     "standard",
     "nackgammon",
+    "long-backgammon",
     "1-chequer-hypergammon",
     "2-chequer-hypergammon",
     "3-chequer-hypergammon"
