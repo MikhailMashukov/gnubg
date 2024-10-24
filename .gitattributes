@@ -1,7 +1,16 @@
-* text eol=lf
 *.am text eol=lf
-*.sh text eol=lf
 *.awk text eol=lf
+*.m4 text eol=lf
+*.sh text eol=lf
 
-*.* text=auto 
-   # Default
+# All without extension
+ABOUT-NLS text eol=lf
+ChangeLog text eol=lf
+CODING    text eol=lf
+COPYING   text eol=lf
+INSTALL   text eol=lf
+NEWS      text eol=lf
+README    text eol=lf
+TODO      text eol=lf
+
+# *.* text=auto    # Default
